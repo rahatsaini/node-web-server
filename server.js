@@ -2,6 +2,9 @@ const express = require('express');
 
 const hbs= require('hbs');
 var app = express();
+
+
+//port for heroku
 const port = process.env.PORT || 3000;
 
 
@@ -20,9 +23,6 @@ var fs = require('fs');
 
 
 
-    app.use((req,res,next)=>{
-         res.render('maintaince.hbs');
-        });
 
 
 app.use(express.static(__dirname+'/public'));
@@ -32,18 +32,13 @@ hbs.registerHelper('currentYear',()=>
 });
 
 
-
-
-
 app.get('/',(req,res)=>{ 
     res.render('welcome.hbs',
     {
         pagetitle:'Welcome',
         
     });
-});
-
-
+})
 
 app.get('/about',(req,res)=>{
     res.render('about.hbs',
