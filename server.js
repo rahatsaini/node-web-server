@@ -24,7 +24,7 @@ var fs = require('fs');
 
 
 
-    
+
 
 app.use(express.static(__dirname+'/public'));
 hbs.registerHelper('currentYear',()=>
@@ -50,6 +50,6 @@ app.get('/about',(req,res)=>{
     );
 });
 
-app.listen(port, ()=>{
-    console.log(`Server started at port ${port}`);
-} );
+app.listen(process.env.PORT, () => {
+    console.log(`Connected on ${process.env.PORT}`)
+});
