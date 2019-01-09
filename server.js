@@ -13,7 +13,7 @@ app.use((req, res, next) => {
   var log = `${now}: ${req.method} ${req.url}`;
 
   console.log(log);
-  fs.appendFile('server.log', log + '\n');
+  fs.appendFileSync('serer.log', log + '\n');
   next();
 });
 
@@ -54,3 +54,4 @@ app.get('/bad', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
 });
+ 
